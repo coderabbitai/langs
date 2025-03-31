@@ -24,4 +24,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --ignore-scripts
       - name: Run linting/formatting checks
-        run: pnpm lint:ci
+        run: |
+          pnpm lint:ci
+          pnpm format:ci

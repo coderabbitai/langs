@@ -1,14 +1,13 @@
 {
   "name": "@ast-grep/langs",
   "private": true,
-  "workspaces": [
-    "packages/*",
-    "scripts/*"
-  ],
+  "workspaces": ["packages/*", "scripts/*"],
   "version": "0.0.1",
   "description": "Monorepo for `@ast-grep/lang-*` packages",
   "scripts": {
     "postinstall": "pnpm -r compile-ts",
+    "format": "biome format --write",
+    "format:ci": "biome format",
     "lint": "biome lint --fix",
     "lint:ci": "biome lint",
     "prepare": "husky"
@@ -21,8 +20,6 @@
     "husky": "9.1.7"
   },
   "pnpm": {
-    "onlyBuiltDependencies": [
-      "tree-sitter-cli"
-    ]
+    "onlyBuiltDependencies": ["tree-sitter-cli"]
   }
 }
