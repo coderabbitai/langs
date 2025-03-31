@@ -1,11 +1,7 @@
+import type { DynamicLangRegistrations, SgRoot } from '@ast-grep/napi'
+import { parse, registerDynamicLanguage } from '@ast-grep/napi'
 import fs from 'node:fs'
 import path from 'node:path'
-import {
-  parse,
-  registerDynamicLanguage,
-  type SgRoot,
-  type DynamicLangRegistrations,
-} from '@ast-grep/napi'
 
 /**
  * Log to console
