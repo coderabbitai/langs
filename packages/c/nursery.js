@@ -7,10 +7,10 @@ setup({
   name: 'c',
   treeSitterPackage: 'tree-sitter-c',
   languageRegistration,
-  testRunner: (parse) => {
+  testRunner: parse => {
     const sg = parse('int a = 123;')
     const root = sg.root()
     const node = root.find('$T $A = 123')
     assert.equal(node.kind(), 'declaration')
-  }
+  },
 })

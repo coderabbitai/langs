@@ -33,7 +33,9 @@ function postinstall(config: SetupConfig) {
   try {
     buildSrc(config)
   } catch (e: unknown) {
-    log('build failed, please ensure tree-sitter-cli is installed as peer dependency')
+    log(
+      'build failed, please ensure tree-sitter-cli is installed as peer dependency',
+    )
     log(e)
   }
 }
@@ -42,7 +44,9 @@ function buildSrc(config: SetupConfig) {
   const { dirname } = config
   const existing = path.join(dirname, 'src')
   if (!fs.existsSync(existing)) {
-    log('tree-sitter src not found. If you are making a lang package, please run `pnpm source`.')
+    log(
+      'tree-sitter src not found. If you are making a lang package, please run `pnpm source`.',
+    )
     return
   }
   log('building parser from source')
@@ -66,7 +70,12 @@ const ARCH_MAP: Record<string, string> = {
 function resolvePrebuild(dir: string) {
   const os = PLATFORM_MAP[process.platform]
   const arch = ARCH_MAP[process.arch]
-  const prebuild = path.join(dir, 'prebuilds', `prebuild-${os}-${arch}`, 'parser.so')
+  const prebuild = path.join(
+    dir,
+    'prebuilds',
+    `prebuild-${os}-${arch}`,
+    'parser.so',
+  )
   if (!os || !arch || !fs.existsSync(prebuild)) {
     log(`no prebuild for ${os} ${arch}`)
     return undefined

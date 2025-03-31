@@ -7,7 +7,7 @@ setup({
   name: 'cpp',
   treeSitterPackage: 'tree-sitter-cpp',
   languageRegistration,
-  testRunner: (parse) => {
+  testRunner: parse => {
     const sg = parse(`
       template <typename T>
       T add(T a, T b) {
@@ -22,5 +22,5 @@ setup({
     const root = sg.root()
     const node = root.find('$T $A = 123')
     assert.equal(node.kind(), 'declaration')
-  }
+  },
 })

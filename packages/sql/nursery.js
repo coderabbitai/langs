@@ -6,7 +6,7 @@ setup({
   name: 'sql',
   treeSitterPackage: '@derekstride/tree-sitter-sql',
   languageRegistration,
-  testRunner: (parse) => {
+  testRunner: parse => {
     // add test here
-  }
+  },
 })

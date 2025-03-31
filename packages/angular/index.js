@@ -3,7 +3,7 @@ const libPath = path.join(__dirname, 'parser.so')
 
 module.exports = {
   libraryPath: libPath,
-  extensions: ["html"],
+  extensions: ['html'],
   languageSymbol: 'tree_sitter_angular',
   expandoChar: 'z',
 }

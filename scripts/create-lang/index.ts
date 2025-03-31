@@ -12,61 +12,67 @@ function required(s: string): string | true {
 
 // https://github.com/vitejs/vite/blob/76082e3d3033b09b02b6db64de6e36942593c753/packages/create-vite/src/index.ts#L557
 function isValidPackageName(projectName: string) {
-  return /^(?:@[a-z\d\-*~][a-z\d\-*._~]*\/)?[a-z\d\-~][a-z\d\-._~]*$/.test(
-    projectName,
-  ) || 'Invalid package name'
+  return (
+    /^(?:@[a-z\d\-*~][a-z\d\-*._~]*\/)?[a-z\d\-~][a-z\d\-._~]*$/.test(
+      projectName,
+    ) || 'Invalid package name'
+  )
 }
 
-
 function askConfiguration() {
-  return prompts([
+  return prompts(
+    [
+      {
+        type: 'text',
+        name: 'name',
+        message: 'Language name',
+        validate: required,
+      },
+      {
+        type: 'text',
+        name: 'packageName',
+        message: 'Package name',
+        validate: isValidPackageName,
+        initial: (_, answers) => `my-dynamic-lang-${answers.name}`,
+      },
+      {
+        type: 'text',
+        name: 'treeSitterPackage',
+        message: 'Tree-sitter package to use',
+        validate: isValidPackageName,
+        initial: (_, answers) => `tree-sitter-${answers.name}`,
+      },
+      {
+        type: 'list',
+        name: 'extensions',
+        message: 'File extensions used by the language, comma separated',
+        separator: ',',
+        validate: required,
+      },
+      {
+        type: 'text',
+        name: 'expandoChar',
+        message: 'Expando char used in pattern',
+        initial: '$',
+        validate: value => {
+          return value.length === 1
+            ? true
+            : 'Expando char must be a single character'
+        },
+      },
+      {
+        type: 'confirm',
+        name: 'includeDotFiles',
+        message: 'Include gitignore and npm publish files?',
+        initial: true,
+      },
+    ],
     {
-      type: 'text',
-      name: 'name',
-      message: 'Language name',
-      validate: required,
+      onCancel: () => {
+        process.exit(1)
+      },
     },
-    {
-      type: 'text',
-      name: 'packageName',
-      message: 'Package name',
-      validate: isValidPackageName,
-      initial: (_, answers) => `my-dynamic-lang-${answers.name}`,
-    },
-    {
-      type: 'text',
-      name: 'treeSitterPackage',
-      message: 'Tree-sitter package to use',
-      validate: isValidPackageName,
-      initial: (_, answers) => `tree-sitter-${answers.name}`,
-    },
-    {
-      type: 'list',
-      name: 'extensions',
-      message: 'File extensions used by the language, comma separated',
-      separator: ',',
-      validate: required,
-    },
-    {
-      type: 'text',
-      name: 'expandoChar',
-      message: 'Expando char used in pattern',
-      initial: '$',
-      validate: (value) => {
-        return value.length === 1 ? true : 'Expando char must be a single character'
-      }
-    },
-    {
-      type: 'confirm',
-      name: 'includeDotFiles',
-      message: 'Include gitignore and npm publish files?',
-      initial: true,
-    }
-  ], {
-    onCancel: () => {
-      process.exit(1)
-    }
-  })
+  )
 }
 
 type Answers = Awaited<ReturnType<typeof askConfiguration>>
@@ -74,12 +80,12 @@ type Answers = Awaited<ReturnType<typeof askConfiguration>>
 function copyTemplate(targetDir: string, includeDotFiles: boolean) {
   const templateDir = path.join(__dirname, 'template')
   return fs.cp(templateDir, targetDir, {
-    recursive: true,  // Copy all files and folders
+    recursive: true, // Copy all files and folders
     // includes hidden files if `includeDotFiles` is true
-    filter: (src) => {
+    filter: src => {
       const basename = path.basename(src)
       return includeDotFiles || !basename.startsWith('.')
-    }
+    },
   })
 }
 
@@ -98,7 +104,7 @@ async function renameFiles(dir: string, answer: Answers) {
       renameFiles(filePath, answer)
     } else {
       const content = await fs.readFile(filePath, 'utf-8')
-      const newContent = content.replace(/(\$\$[A-Z_]+\$\$)/g, (match) => {
+      const newContent = content.replace(/(\$\$[A-Z_]+\$\$)/g, match => {
         return name[match] || match
       })
       await fs.writeFile(filePath, newContent)

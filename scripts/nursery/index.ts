@@ -1,6 +1,11 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { parse, registerDynamicLanguage, type SgRoot, type DynamicLangRegistrations } from '@ast-grep/napi'
+import {
+  parse,
+  registerDynamicLanguage,
+  type SgRoot,
+  type DynamicLangRegistrations,
+} from '@ast-grep/napi'
 
 /**
  * Log to console
@@ -26,7 +31,7 @@ interface SetupConfig {
 function test(setupConfig: SetupConfig) {
   const { name, languageRegistration, testRunner } = setupConfig
   registerDynamicLanguage({ [name]: languageRegistration })
-  testRunner((code) => parse(name, code))
+  testRunner(code => parse(name, code))
 }
 
 /** Setup ast-grep/lang package's pre-release build and test */
@@ -43,7 +48,7 @@ export function setup(setupConfig: SetupConfig) {
 function copySrcIfNeeded(config: SetupConfig) {
   const { dirname, treeSitterPackage } = config
   const existing = path.join(dirname, 'src')
-  const src = path.join(dirname, 'node_modules', treeSitterPackage,  'src')
+  const src = path.join(dirname, 'node_modules', treeSitterPackage, 'src')
   if (fs.existsSync(existing)) {
     log('src exists, skipping copy')
     return
