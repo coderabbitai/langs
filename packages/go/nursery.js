@@ -1,4 +1,5 @@
 const { setup } = require('@ast-grep/nursery')
+const assert = require('node:assert')
 const languageRegistration = require('./index')
 
 setup({
@@ -7,6 +8,11 @@ setup({
   treeSitterPackage: 'tree-sitter-go',
   languageRegistration,
   testRunner: parse => {
-    // add test here
+    const sg = parse(`func plus(a int, b int) int {
+	return a + b
+}`)
+    const root = sg.root()
+    const node = root.find('func $A($$$) $B { $$$ }')
+    assert.equal(node.kind(), 'function_declaration')
   },
 })
