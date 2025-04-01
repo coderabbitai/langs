@@ -7,6 +7,9 @@ setup({
   treeSitterPackage: 'tree-sitter-bash',
   languageRegistration,
   testRunner: parse => {
-    // add test here
+    const sg = parse('echo test')
+    const root = sg.root()
+    const node = root.find('echo $A')
+    assert.equal(node.kind(), 'command')
   },
 })
