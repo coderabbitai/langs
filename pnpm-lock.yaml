@@ -98,6 +98,22 @@ importers:
         specifier: 0.23.4
         version: 0.23.4(tree-sitter@0.21.1)
 
+  packages/haskell:
+    dependencies:
+      '@ast-grep/setup-lang':
+        specifier: 0.0.3
+        version: 0.0.3
+    devDependencies:
+      '@ast-grep/nursery':
+        specifier: 0.0.2
+        version: 0.0.2
+      tree-sitter-cli:
+        specifier: 0.24.6
+        version: 0.24.6
+      tree-sitter-haskell:
+        specifier: 0.23.1
+        version: 0.23.1(tree-sitter@0.21.1)
+
   packages/python:
     dependencies:
       '@ast-grep/setup-lang':
@@ -826,6 +842,14 @@ packages:
       tree-sitter:
         optional: true
 
+  tree-sitter-haskell@0.23.1:
+    resolution: {integrity: sha512-qG4CYhejveu9DLMLEGBz/n9/TTeGSFLC6wniwOgG6m8/v7Dng8qR0ob0EVG7+XH+9WiOxohpGA23EhceWuxY4w==}
+    peerDependencies:
+      tree-sitter: ^0.21.1
+    peerDependenciesMeta:
+      tree-sitter:
+        optional: true
+
   tree-sitter-html@0.20.4:
     resolution: {integrity: sha512-IUE82HgrxGXMiq5xYkAV6VYt+txcqIo4yPUEvq43UIabCKeEUqDOEOmCE9W9mQ2c3392VJEXOPzlpd7VuX1c6Q==}
     peerDependencies:
@@ -1468,6 +1492,13 @@ snapshots:
       tree-sitter-c: 0.23.5
 
   tree-sitter-go@0.23.4(tree-sitter@0.21.1):
+    dependencies:
+      node-addon-api: 8.3.1
+      node-gyp-build: 4.8.4
+    optionalDependencies:
+      tree-sitter: 0.21.1
+
+  tree-sitter-haskell@0.23.1(tree-sitter@0.21.1):
     dependencies:
       node-addon-api: 8.3.1
       node-gyp-build: 4.8.4
