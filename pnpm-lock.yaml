@@ -130,6 +130,22 @@ importers:
         specifier: 1.0.0
         version: 1.0.0
 
+  packages/elixir:
+    dependencies:
+      '@ast-grep/setup-lang':
+        specifier: 0.0.3
+        version: 0.0.3
+    devDependencies:
+      '@ast-grep/nursery':
+        specifier: 0.0.2
+        version: 0.0.2
+      tree-sitter-cli:
+        specifier: 0.24.6
+        version: 0.24.6
+      tree-sitter-elixir:
+        specifier: 0.3.4
+        version: 0.3.4(tree-sitter@0.21.1)
+
   packages/go:
     dependencies:
       '@ast-grep/setup-lang':
@@ -904,6 +920,11 @@ packages:
   tree-sitter-dart@1.0.0:
     resolution: {integrity: sha512-Ve5YMPJjjGW9LEsO+MngAOibQsw5obFp+bUT41pvwdcXWRwJImOWs3eaPi6AubEiBmc09qvhdvxeIXvxlhMnug==}
 
+  tree-sitter-elixir@0.3.4:
+    resolution: {integrity: sha512-Bmaza0305xlrv9o4K+Piqd+pdgoAZp5cDIM2EURsmv0znFEXrXCcRoGOw2q6SsDdX8e6WI43+sQ2ye4xnXASBA==}
+    peerDependencies:
+      tree-sitter: ^0.21.0
+
   tree-sitter-go@0.23.4:
     resolution: {integrity: sha512-iQaHEs4yMa/hMo/ZCGqLfG61F0miinULU1fFh+GZreCRtKylFLtvn798ocCZjO2r/ungNZgAY1s1hPFyAwkc7w==}
     peerDependencies:
@@ -1578,6 +1599,12 @@ snapshots:
   tree-sitter-dart@1.0.0:
     dependencies:
       nan: 2.22.2
+
+  tree-sitter-elixir@0.3.4(tree-sitter@0.21.1):
+    dependencies:
+      node-addon-api: 7.1.1
+      node-gyp-build: 4.8.4
+      tree-sitter: 0.21.1
 
   tree-sitter-go@0.23.4(tree-sitter@0.21.1):
     dependencies:
