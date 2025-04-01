@@ -23,6 +23,13 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install --ignore-scripts
+
+      - name: Build and test
+        run: |
+          pnpm -r source
+          pnpm -r build
+          pnpm -r test
+
       - name: Run linting/formatting checks
         run: |
           pnpm lint:ci
