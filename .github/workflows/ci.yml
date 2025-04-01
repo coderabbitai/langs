@@ -26,6 +26,7 @@ jobs:
 
       - name: Build and test
         run: |
+          pnpm -r compile-ts
           pnpm -r source
           pnpm -r build
           pnpm -r test
