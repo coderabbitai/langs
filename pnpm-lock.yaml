@@ -82,6 +82,22 @@ importers:
         specifier: 0.24.6
         version: 0.24.6
 
+  packages/css:
+    dependencies:
+      '@ast-grep/setup-lang':
+        specifier: 0.0.3
+        version: 0.0.3
+    devDependencies:
+      '@ast-grep/nursery':
+        specifier: 0.0.2
+        version: 0.0.2
+      tree-sitter-cli:
+        specifier: 0.24.6
+        version: 0.24.6
+      tree-sitter-css:
+        specifier: 0.23.2
+        version: 0.23.2
+
   packages/go:
     dependencies:
       '@ast-grep/setup-lang':
@@ -818,6 +834,14 @@ packages:
       tree-sitter:
         optional: true
 
+  tree-sitter-css@0.23.2:
+    resolution: {integrity: sha512-B7teNQrPIEEus37nvv00FcW6tw3bXsMUAZDi56OyZAp8cNebA1NPBEZxzIabtyHQnwXSKXeRtUzYhWxTa0JuAg==}
+    peerDependencies:
+      tree-sitter: ^0.22.4
+    peerDependenciesMeta:
+      tree-sitter:
+        optional: true
+
   tree-sitter-go@0.23.4:
     resolution: {integrity: sha512-iQaHEs4yMa/hMo/ZCGqLfG61F0miinULU1fFh+GZreCRtKylFLtvn798ocCZjO2r/ungNZgAY1s1hPFyAwkc7w==}
     peerDependencies:
@@ -1466,6 +1490,11 @@ snapshots:
       node-addon-api: 8.3.0
       node-gyp-build: 4.8.4
       tree-sitter-c: 0.23.5
+
+  tree-sitter-css@0.23.2:
+    dependencies:
+      node-addon-api: 8.3.1
+      node-gyp-build: 4.8.4
 
   tree-sitter-go@0.23.4(tree-sitter@0.21.1):
     dependencies:
