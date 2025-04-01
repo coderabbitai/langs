@@ -1,4 +1,5 @@
 const { setup } = require('@ast-grep/nursery')
+const assert = require('node:assert')
 const languageRegistration = require('./index')
 
 setup({
