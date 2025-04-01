@@ -402,6 +402,22 @@ importers:
         specifier: 0.24.6
         version: 0.24.6
 
+  packages/yaml:
+    dependencies:
+      '@ast-grep/setup-lang':
+        specifier: 0.0.3
+        version: 0.0.3
+    devDependencies:
+      '@ast-grep/nursery':
+        specifier: 0.0.2
+        version: 0.0.2
+      tree-sitter-cli:
+        specifier: 0.24.6
+        version: 0.24.6
+      tree-sitter-yaml:
+        specifier: 0.5.0
+        version: 0.5.0
+
   scripts/create-lang:
     dependencies:
       prompts:
@@ -1172,6 +1188,9 @@ packages:
       tree_sitter:
         optional: true
 
+  tree-sitter-yaml@0.5.0:
+    resolution: {integrity: sha512-POJ4ZNXXSWIG/W4Rjuyg36MkUD4d769YRUGKRqN+sVaj/VCo6Dh6Pkssn1Rtewd5kybx+jT1BWMyWN0CijXnMA==}
+
   tree-sitter@0.21.1:
     resolution: {integrity: sha512-7dxoA6kYvtgWw80265MyqJlkRl4yawIjO7S5MigytjELkX43fV2WsAXzsNfO7sBpPPCF5Gp0+XzHk0DwLCq3xQ==}
 
@@ -1881,6 +1900,10 @@ snapshots:
       tree-sitter: 0.21.1
       tree-sitter-cli: 0.23.2
       which: 2.0.2
+
+  tree-sitter-yaml@0.5.0:
+    dependencies:
+      nan: 2.22.2
 
   tree-sitter@0.21.1:
     dependencies:
