@@ -130,8 +130,8 @@ importers:
   packages/toml:
     dependencies:
       '@ast-grep/setup-lang':
-        specifier: workspace:*
-        version: link:../../scripts/setup
+        specifier: 0.0.3
+        version: 0.0.3
     devDependencies:
       '@ast-grep/nursery':
         specifier: workspace:*
