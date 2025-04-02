@@ -1,4 +1,5 @@
 const { setup } = require('@ast-grep/nursery')
+const assert = require('node:assert')
 const languageRegistration = require('./index')
 
 setup({
@@ -7,6 +8,9 @@ setup({
   treeSitterPackage: 'tree-sitter-html',
   languageRegistration,
   testRunner: parse => {
-    // add test here
+    const sg = parse("<div class='foo'></div>")
+    const root = sg.root()
+    const node = root.find("<$TAG class='foo'>$$$</$TAG>")
+    assert.equal(node.kind(), 'element')
   },
 })
