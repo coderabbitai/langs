@@ -281,8 +281,8 @@ importers:
         version: 0.0.3
     devDependencies:
       '@ast-grep/nursery':
-        specifier: 0.0.2
-        version: 0.0.2
+        specifier: workspace:*
+        version: link:../../scripts/nursery
       tree-sitter-cli:
         specifier: 0.24.6
         version: 0.24.6

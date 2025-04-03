@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tree-sitter build -o parser.so",
+    "build": "tree-sitter build -o parser.so ./node_modules/tree-sitter-php/php",
     "source": "node nursery.js source",
     "prepublishOnly": "node nursery.js source",
     "postinstall": "node postinstall.js",
@@ -33,7 +33,7 @@
     }
   },
   "devDependencies": {
-    "@ast-grep/nursery": "0.0.2",
+    "@ast-grep/nursery": "workspace:*",
     "tree-sitter-cli": "0.24.6",
     "tree-sitter-php": "0.23.12"
   },
