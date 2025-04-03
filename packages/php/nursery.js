@@ -1,4 +1,5 @@
 const { setup } = require('@ast-grep/nursery')
+const assert = require('node:assert')
 const languageRegistration = require('./index')
 const path = require('node:path')
 
@@ -9,6 +10,9 @@ setup({
   src: path.join('php', 'src'),
   languageRegistration,
   testRunner: parse => {
-    // add test here
+    const sg = parse('123')
+    const root = sg.root()
+    const node = root.find('123')
+    assert.equal(node.kind(), 'text')
   },
 })
