@@ -194,6 +194,22 @@ importers:
         specifier: 0.23.5
         version: 0.23.5(tree-sitter@0.21.1)
 
+  packages/lua:
+    dependencies:
+      '@ast-grep/setup-lang':
+        specifier: 0.0.3
+        version: 0.0.3
+    devDependencies:
+      '@ast-grep/nursery':
+        specifier: 0.0.2
+        version: 0.0.2
+      tree-sitter-cli:
+        specifier: 0.24.6
+        version: 0.24.6
+      tree-sitter-lua:
+        specifier: 2.1.3
+        version: 2.1.3
+
   packages/python:
     dependencies:
       '@ast-grep/setup-lang':
@@ -990,6 +1006,9 @@ packages:
       tree-sitter:
         optional: true
 
+  tree-sitter-lua@2.1.3:
+    resolution: {integrity: sha512-BmRSRI0Y4J47cE2cODyXsPiueDSAnIrFLJqOP/gKIJhGa4HoGpvEccmNuhAEVGtCrgaHGhaIkWeqiMGCgQ0cfw==}
+
   tree-sitter-python@0.23.6:
     resolution: {integrity: sha512-yIM9z0oxKIxT7bAtPOhgoVl6gTXlmlIhue7liFT4oBPF/lha7Ha4dQBS82Av6hMMRZoVnFJI8M6mL+SwWoLD3A==}
     peerDependencies:
@@ -1680,6 +1699,10 @@ snapshots:
       node-gyp-build: 4.8.4
     optionalDependencies:
       tree-sitter: 0.21.1
+
+  tree-sitter-lua@2.1.3:
+    dependencies:
+      nan: 2.22.2
 
   tree-sitter-python@0.23.6:
     dependencies:
