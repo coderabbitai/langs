@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tree-sitter build -o parser.so",
+    "build": "tree-sitter build -o parser.so ./node_modules/tree-sitter-typescript/tsx",
     "source": "node nursery.js source",
     "prepublishOnly": "node nursery.js source",
     "postinstall": "node postinstall.js",
@@ -33,8 +33,9 @@
     }
   },
   "devDependencies": {
-    "@ast-grep/nursery": "0.0.2",
-    "tree-sitter-cli": "0.24.6"
+    "@ast-grep/nursery": "0.0.3",
+    "tree-sitter-cli": "0.24.6",
+    "tree-sitter-typescript": "^0.23.2"
   },
   "publishConfig": {
     "access": "public",
