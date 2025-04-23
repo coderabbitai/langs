@@ -1,0 +1,33 @@
+import test from 'node:test'
+import { langs } from './langs.js'
+
+/** Languages supported in `@ast-grep/napi@~0.33.1`. */
+const previous = Object.freeze({
+  Html: 'Html',
+  JavaScript: 'JavaScript',
+  Tsx: 'Tsx',
+  Css: 'Css',
+  TypeScript: 'TypeScript',
+  Bash: 'Bash',
+  C: 'C',
+  Cpp: 'Cpp',
+  CSharp: 'CSharp',
+  Go: 'Go',
+  Elixir: 'Elixir',
+  Haskell: 'Haskell',
+  Java: 'Java',
+  Json: 'Json',
+  Kotlin: 'Kotlin',
+  Lua: 'Lua',
+  Php: 'Php',
+  Python: 'Python',
+  Ruby: 'Ruby',
+  Rust: 'Rust',
+  Scala: 'Scala',
+  Sql: 'Sql',
+  Swift: 'Swift',
+})
+
+test('The new language enum is compatible with the old one', ({ assert }) => {
+  for (const lang of Object.values(previous)) assert.equal(langs[lang], lang)
+})
