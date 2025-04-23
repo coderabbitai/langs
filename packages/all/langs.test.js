@@ -1,4 +1,5 @@
-import test from 'node:test'
+import { Lang as LangNapi } from '@ast-grep/napi'
+import test, { describe } from 'node:test'
 import { Lang } from './langs.js'
 
 /** Languages supported in `@ast-grep/napi@~0.33.1`. */
@@ -28,6 +29,14 @@ const previous = Object.freeze({
   Swift: 'Swift',
 })
 
-test('The new language enum is compatible with the old one', ({ assert }) => {
-  for (const lang of Object.values(previous)) assert.equal(Lang[lang], lang)
+describe('Lang', () => {
+  test('The new language enum is compatible with the old one', ({ assert }) => {
+    for (const lang of Object.values(previous)) assert.equal(Lang[lang], lang)
+  })
+
+  test('The new language enum is compatible with the built-in ones', ({
+    assert,
+  }) => {
+    for (const lang of Object.values(LangNapi)) assert.equal(Lang[lang], lang)
+  })
 })
