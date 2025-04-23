@@ -17,7 +17,7 @@
   "repository": "github:ast-grep/langs",
   "scripts": {
     "format": "biome format --write",
-    "test": "node --test './**/*.test.js'"
+    "test": "node --test '*.test.js'"
   },
   "dependencies": {
     "@ast-grep/lang-angular": "workspace:*",
