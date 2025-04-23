@@ -1,5 +1,5 @@
 import test from 'node:test'
-import { langs } from './langs.js'
+import { Lang } from './langs.js'
 
 /** Languages supported in `@ast-grep/napi@~0.33.1`. */
 const previous = Object.freeze({
@@ -29,5 +29,5 @@ const previous = Object.freeze({
 })
 
 test('The new language enum is compatible with the old one', ({ assert }) => {
-  for (const lang of Object.values(previous)) assert.equal(langs[lang], lang)
+  for (const lang of Object.values(previous)) assert.equal(Lang[lang], lang)
 })

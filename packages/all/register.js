@@ -26,7 +26,7 @@ import toml from '@ast-grep/lang-toml'
 import tsx from '@ast-grep/lang-tsx'
 import typescript from '@ast-grep/lang-typescript'
 import { registerDynamicLanguage as rdl } from '@ast-grep/napi'
-import { langs } from './langs.js'
+import { Lang } from './langs.js'
 
 /**
  * Built-in dynamic languages supported by `@ast-grep/langs`.
@@ -35,32 +35,32 @@ import { langs } from './langs.js'
  */
 // @ts-expect-error
 const register = Object.freeze({
-  [langs.Angular]: angular,
-  [langs.Bash]: bash,
-  [langs.C]: c,
-  [langs.Cpp]: cpp,
-  [langs.CSharp]: csharp,
-  [langs.Css]: css,
-  [langs.Dart]: dart,
-  [langs.Elixir]: elixir,
-  [langs.Go]: go,
-  [langs.Haskell]: haskell,
-  [langs.Html]: html,
-  [langs.Java]: java,
-  [langs.JavaScript]: javascript,
-  [langs.Json]: json,
-  [langs.Kotlin]: kotlin,
-  [langs.Lua]: lua,
-  [langs.Php]: php,
-  [langs.Python]: python,
-  [langs.Ruby]: ruby,
-  [langs.Rust]: rust,
-  [langs.Scala]: scala,
-  [langs.Sql]: sql,
-  [langs.Swift]: swift,
-  [langs.Toml]: toml,
-  [langs.Tsx]: tsx,
-  [langs.TypeScript]: typescript,
+  [Lang.Angular]: angular,
+  [Lang.Bash]: bash,
+  [Lang.C]: c,
+  [Lang.Cpp]: cpp,
+  [Lang.CSharp]: csharp,
+  [Lang.Css]: css,
+  [Lang.Dart]: dart,
+  [Lang.Elixir]: elixir,
+  [Lang.Go]: go,
+  [Lang.Haskell]: haskell,
+  [Lang.Html]: html,
+  [Lang.Java]: java,
+  [Lang.JavaScript]: javascript,
+  [Lang.Json]: json,
+  [Lang.Kotlin]: kotlin,
+  [Lang.Lua]: lua,
+  [Lang.Php]: php,
+  [Lang.Python]: python,
+  [Lang.Ruby]: ruby,
+  [Lang.Rust]: rust,
+  [Lang.Scala]: scala,
+  [Lang.Sql]: sql,
+  [Lang.Swift]: swift,
+  [Lang.Toml]: toml,
+  [Lang.Tsx]: tsx,
+  [Lang.TypeScript]: typescript,
 })
 
 /**

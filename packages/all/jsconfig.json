@@ -27,7 +27,6 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "outDir": "./dist",
 
     /* Interop Constraints */
     "isolatedModules": true,
@@ -59,5 +58,8 @@
     /* Completeness */
     "skipDefaultLibCheck": true,
     "skipLibCheck": true
-  }
+  },
+
+  "include": ["./**/*.js", "./**/*.d.ts"],
+  "exclude": ["node_modules"]
 }

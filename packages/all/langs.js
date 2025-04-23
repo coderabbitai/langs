@@ -1,7 +1,7 @@
 /**
  * An enum of all languages supported by `@ast-grep/langs`.
  */
-export const langs = Object.freeze({
+export const Lang = Object.freeze({
   Angular: 'Angular',
   Bash: 'Bash',
   C: 'C',
