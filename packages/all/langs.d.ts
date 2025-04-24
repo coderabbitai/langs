@@ -1,33 +1,9 @@
-/**
- * An enum of all languages supported by `@ast-grep/langs`.
- */
-export declare const Lang: Readonly<{
-  Angular: 'Angular'
-  Bash: 'Bash'
-  C: 'C'
-  Cpp: 'Cpp'
-  CSharp: 'CSharp'
-  Css: 'Css'
-  Dart: 'Dart'
-  Elixir: 'Elixir'
-  Go: 'Go'
-  Haskell: 'Haskell'
-  Html: 'Html'
-  Java: 'Java'
-  JavaScript: 'JavaScript'
-  Json: 'Json'
-  Kotlin: 'Kotlin'
-  Lua: 'Lua'
-  Php: 'Php'
-  Python: 'Python'
-  Ruby: 'Ruby'
-  Rust: 'Rust'
-  Scala: 'Scala'
-  Sql: 'Sql'
-  Swift: 'Swift'
-  Toml: 'Toml'
-  Tsx: 'Tsx'
-  TypeScript: 'TypeScript'
-}>
+import type { DynamicLangRegistrations } from '@ast-grep/napi'
+import type { Lang } from './lang.js'
 
-export type Lang = (typeof Lang)[keyof typeof Lang]
+/**
+ * Built-in dynamic languages supported by `@ast-grep/langs`.
+ */
+export declare const langs: Readonly<
+  Record<Lang, DynamicLangRegistrations[string]>
+>

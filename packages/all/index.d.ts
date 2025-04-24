@@ -1,3 +1,2 @@
-export { DynamicLangRegistrations } from '@ast-grep/napi'
+export * from './lang.js'
 export * from './langs.js'
-export * from './register.js'

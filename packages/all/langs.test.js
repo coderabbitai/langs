@@ -1,42 +1,29 @@
-import { Lang as LangNapi } from '@ast-grep/napi'
-import test, { describe } from 'node:test'
-import { Lang } from './langs.js'
+import { parse, registerDynamicLanguage } from '@ast-grep/napi'
+import { before, describe, test } from 'node:test'
+import { Lang } from './lang.js'
+import { langs } from './langs.js'
 
-/** Languages supported in `@ast-grep/napi@~0.33.1`. */
-const previous = Object.freeze({
-  Html: 'Html',
-  JavaScript: 'JavaScript',
-  Tsx: 'Tsx',
-  Css: 'Css',
-  TypeScript: 'TypeScript',
-  Bash: 'Bash',
-  C: 'C',
-  Cpp: 'Cpp',
-  CSharp: 'CSharp',
-  Go: 'Go',
-  Elixir: 'Elixir',
-  Haskell: 'Haskell',
-  Java: 'Java',
-  Json: 'Json',
-  Kotlin: 'Kotlin',
-  Lua: 'Lua',
-  Php: 'Php',
-  Python: 'Python',
-  Ruby: 'Ruby',
-  Rust: 'Rust',
-  Scala: 'Scala',
-  Sql: 'Sql',
-  Swift: 'Swift',
-})
+describe('langs', () => {
+  before(() => registerDynamicLanguage(langs))
 
-describe('Lang', () => {
-  test('The new language enum is compatible with the old one', ({ assert }) => {
-    for (const lang of Object.values(previous)) assert.equal(Lang[lang], lang)
+  // A newly supported language
+  test(Lang.Dart, ({ assert }) => {
+    const sg = parse(Lang.Dart, 'var x = "Hello, world!";"')
+    const kind = sg.root().kind()
+    assert.equal(kind, 'program')
   })
 
-  test('The new language enum is compatible with the built-in ones', ({
-    assert,
-  }) => {
-    for (const lang of Object.values(LangNapi)) assert.equal(Lang[lang], lang)
+  // A previously supported language
+  test(Lang.Go, ({ assert }) => {
+    const sg = parse(Lang.Dart, 'x := "Hello, world!"')
+    const kind = sg.root().kind()
+    assert.equal(kind, 'program')
+  })
+
+  // A built-in language
+  test(Lang.TypeScript, ({ assert }) => {
+    const sg = parse(Lang.TypeScript, 'const x = "Hello, world!"')
+    const kind = sg.root().kind()
+    assert.equal(kind, 'program')
   })
 })
