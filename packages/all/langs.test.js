@@ -15,9 +15,9 @@ describe('langs', () => {
 
   // A previously supported language
   test(Lang.Go, ({ assert }) => {
-    const sg = parse(Lang.Dart, 'x := "Hello, world!"')
+    const sg = parse(Lang.Go, 'x := "Hello, world!"')
     const kind = sg.root().kind()
-    assert.equal(kind, 'program')
+    assert.equal(kind, 'source_file')
   })
 
   // A built-in language
