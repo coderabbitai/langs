@@ -1,6 +1,6 @@
 import { parse, registerDynamicLanguage } from "@ast-grep/napi"
 import { before, describe, test } from "node:test"
-import { Lang } from "./lang.js"
+import { Lang } from "./lang.ts"
 import { langs } from "./langs.ts"
 
 describe("langs", () => {
