@@ -98,9 +98,22 @@ importers:
       '@ast-grep/lang-typescript':
         specifier: workspace:*
         version: link:../typescript
+      '@ast-grep/lang-yaml':
+        specifier: workspace:*
+        version: link:../yaml
       '@ast-grep/napi':
         specifier: ^0.37.0
         version: 0.37.0
+    devDependencies:
+      '@biomejs/biome':
+        specifier: 1.9.4
+        version: 1.9.4
+      '@types/node':
+        specifier: 22.14.1
+        version: 22.14.1
+      typescript:
+        specifier: ^5.8.3
+        version: 5.8.3
 
   packages/angular:
     dependencies:

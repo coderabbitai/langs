@@ -9,15 +9,21 @@
   },
   "license": "ISC",
   "author": {
-    "name": "Nato Boram",
-    "url": "https://github.com/NatoBoram"
+    "name": "CodeRabbit",
+    "url": "https://www.coderabbit.ai"
   },
-  "files": ["./**/*.js", "./**/*.d.ts", "!./**/*.test.*"],
-  "main": "index.js",
+  "files": ["dist", "!dist/**/*.test.*"],
+  "main": "dist/index.js",
   "repository": "github:ast-grep/langs",
   "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist docs node_modules tsconfig.tsbuildinfo",
     "format": "biome format --write",
-    "test": "node --test './**/*.test.js'"
+    "format:ci": "biome format",
+    "lint": "biome lint --fix",
+    "lint:ci": "biome lint",
+    "pretest": "tsc",
+    "test": "node --test './dist/**/*.test.js'"
   },
   "dependencies": {
     "@ast-grep/lang-angular": "workspace:*",
@@ -46,15 +52,21 @@
     "@ast-grep/lang-toml": "workspace:*",
     "@ast-grep/lang-tsx": "workspace:*",
     "@ast-grep/lang-typescript": "workspace:*",
+    "@ast-grep/lang-yaml": "workspace:*",
     "@ast-grep/napi": "^0.37.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/node": "22.14.1",
+    "typescript": "^5.8.3"
   },
   "type": "module",
   "exports": {
     ".": {
-      "types": "./index.d.ts",
-      "default": "./index.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     }
   },
-  "types": "./index.d.ts",
-  "module": "./index.js"
+  "types": "dist/index.d.ts",
+  "module": "dist/index.js"
 }
