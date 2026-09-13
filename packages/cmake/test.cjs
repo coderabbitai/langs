@@ -21,5 +21,18 @@ assert.equal(
     .length,
   1,
 )
-assert(root('find_package(').findAll({ rule: { kind: 'ERROR' } }).length > 0)
+const malformed = root('find_package(')
+const errors = malformed.findAll({ rule: { kind: 'ERROR' } })
+if (!errors.length) {
+  const describe = node => ({
+    kind: node.kind(),
+    text: node.text(),
+    children: node.children().map(describe),
+  })
+  console.error(
+    'Malformed-input AST diagnostic:',
+    JSON.stringify(describe(malformed)),
+  )
+}
+assert(errors.length > 0)
 console.log(`CMake native parser passed: ${process.platform}/${process.arch}`)
