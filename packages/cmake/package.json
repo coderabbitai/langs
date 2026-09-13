@@ -1,0 +1,22 @@
+{
+  "name": "@coderabbitai/ast-grep-lang-cmake",
+  "version": "0.0.1",
+  "description": "Pinned CMake tree-sitter grammar for ast-grep",
+  "license": "MIT",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": ["index.js", "index.d.ts", "LICENSE", "UPSTREAM.json", "prebuilds"],
+  "scripts": {
+    "source": "node source.cjs",
+    "build": "node source.cjs && node build.cjs",
+    "test": "node test.cjs",
+    "prepack": "node check-package.cjs"
+  },
+  "devDependencies": {
+    "@ast-grep/napi": "0.45.3"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
