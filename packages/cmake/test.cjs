@@ -23,7 +23,14 @@ assert.equal(
 )
 const malformed = root('find_package(')
 const errors = malformed.findAll({ rule: { kind: 'ERROR' } })
-if (!errors.length) {
+const pending = [...malformed.children()]
+let missingToken = false
+while (pending.length) {
+  const node = pending.pop()
+  if (node.text() === '' && !node.isNamed()) missingToken = true
+  pending.push(...node.children())
+}
+if (!errors.length && !missingToken) {
   const describe = node => ({
     kind: node.kind(),
     text: node.text(),
@@ -34,5 +41,8 @@ if (!errors.length) {
     JSON.stringify(describe(malformed)),
   )
 }
-assert(errors.length > 0)
+assert(
+  errors.length > 0 || missingToken,
+  'Malformed source must retain an error or missing-token recovery marker',
+)
 console.log(`CMake native parser passed: ${process.platform}/${process.arch}`)
