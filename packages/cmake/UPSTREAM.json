@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/uyha/tree-sitter-cmake",
+  "distribution": "https://pypi.org/project/tree-sitter-cmake/0.7.2.post1/",
+  "version": "0.7.2.post1",
+  "files": {
+    "parser.c": "71843d5d805b60d2a1f16c56dd886f00da66e265e578e3226b4975a6b1a30784",
+    "scanner.c": "6f8973c8091994cf6b8eea8c8d88cc931464bc64c8f3dc7e3226db9973ac8270",
+    "tree_sitter/alloc.h": "b29c1c9fb7cc82f58c84b376df1297d6e2737a1d655fd356db0859e3c29c2fea",
+    "tree_sitter/array.h": "5bdf6ed1a78e3409fd443e085ca967a64c188a5d082aaf7f819bccd53a471c94",
+    "tree_sitter/parser.h": "180b893c8734778fd32f372dfbc27bd6ad1cd2221f26150b31256ff6716320d2"
+  }
+}

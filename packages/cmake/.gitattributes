@@ -1,0 +1,2 @@
+# Preserve the exact upstream bytes authenticated by UPSTREAM.json on Windows.
+vendor/** -text
